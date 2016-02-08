@@ -33,7 +33,7 @@ cd ${SCRIPT_DIR};
 # the output in a variable
 exec 5>&1
 # pipefail will return the non zero return value of any command in the pipe
-res=$(set -o pipefail; ./.docker_tools.py --container motion-optimization-service --run "source /root/workspace/devel/setup.bash; rosrun riemo_programs grasp_problem_service" | tee >(cat - >&5))
+res=$(set -o pipefail; ./.docker_tools.py --container motion-optimization-service --run "source /root/workspace/devel/setup.bash;/root/workspace/src/nw_riemo_robots/scripts/run_riemo_move_mico_server.sh" | tee >(cat - >&5))
 
 # if docker tools succeeded we run the output as a shell script
 if [[ "$?" == "1" ]];then

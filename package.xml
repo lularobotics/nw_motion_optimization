@@ -1,0 +1,9 @@
+<package>
+  <name>nw_motion_optimization</name>
+  <version>0.0.1</version>
+  <author email="daniel.kappler@lularobotics.com">Daniel Kappler</author>
+  <maintainer email="daniel.kappler@lularobotics.com">Daniel Kappler</maintainer>
+  <description>scripts to interact with the binary distributed motion optimization library</description>
+  <buildtool_depend>catkin</buildtool_depend>
+  <license>BSD</license>
+</package>

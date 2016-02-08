@@ -200,9 +200,15 @@ def Main():
         default=file_path_default,
         help='the default config file '+file_path_default)
     parser.add_argument(
-        '--load-image',
-        action='store_true',
-        help='load our image')
+        '--container',
+        required=True,
+        type=str,
+        help='the run container name')
+    parser.add_argument(
+        '--run',
+        required=True,
+        type=str,
+        help='the run command')
 
     args = parser.parse_args()
 
@@ -237,12 +243,12 @@ def Main():
             Print_docker_setup_message_linux()
             sys.exit(-1)
 
-    if args.load_image:
+    if args.run != '':
         Print_separator()
         image = config['image']
         Print_comment('trying to load image ' + image['name'])
         Print_separator()
-        if not Load_image(image):
+        if not Run(image, args.container, args.run):
             Print_separator()
             Print_comment('failed to load image ' + image['name'])
             Print_separator()

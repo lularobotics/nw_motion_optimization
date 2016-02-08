@@ -134,7 +134,7 @@ def Run(image, container_name, run_command):
     if image is None:
         return False
 
-    image_name = image['name_base']
+    image_name = image['name']
 
     if not Check_image(image_name):
         Print_separator()

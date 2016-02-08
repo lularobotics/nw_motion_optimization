@@ -26,4 +26,4 @@ if ! command_success docker info;then
     exit 1
 fi
 
-bash ${SCRIPT_DIR}/.docker_tools.py --container motion-optimization-service --run "source /root/workspace/devel/setup.bash && rosrun riemo_programs grasp_problem_service"
+python ${SCRIPT_DIR}/.docker_tools.py --container motion-optimization-service --run "source /root/workspace/devel/setup.bash && rosrun riemo_programs grasp_problem_service"

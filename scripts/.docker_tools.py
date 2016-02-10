@@ -158,7 +158,7 @@ def Run(image, container_name, run_command):
             Print_separator()
             return False
 
-    cmd = 'docker run -ti '
+    cmd = 'docker run '
     cmd += ' ' + '--name ' + container_name
     cmd += ' --net=host'
     cmd += ' ' + image_name

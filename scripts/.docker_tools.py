@@ -130,6 +130,35 @@ def Check_match(value, list_of_strings):
 # setup functionality
 #######################################################################
 
+def Stop(image, container_name):
+    if image is None:
+        return False
+
+    image_name = image['name']
+
+    if not Check_image(image_name):
+        Print_separator()
+        Print_comment('image with name ' + image_name + 'does not exist')
+        Print_separator()
+        return True
+
+    if Check_container(container_name):
+        if Check_running_container(container_name):
+            Print_separator()
+            Print_comment('The service is already started in a different terminal, we are stopping it now.')
+            Print_separator()
+            if not Stop_running_container(container_name):
+                Print_separator()
+                Print_comment('We could not stop the service')
+                Print_separator()
+                return False
+        if not Remove_container(container_name):
+            Print_separator()
+            Print_comment('could not remove container ', container_name)
+            Print_separator()
+            return False
+    return True
+
 def Run(image, container_name, run_command):
     if image is None:
         return False
@@ -206,9 +235,12 @@ def Main():
         help='the run container name')
     parser.add_argument(
         '--run',
-        required=True,
         type=str,
         help='the run command')
+    parser.add_argument(
+        '--stop',
+        action='store_true',
+        help='the stop a container')
 
     args = parser.parse_args()
 

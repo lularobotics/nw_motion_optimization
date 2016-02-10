@@ -145,7 +145,7 @@ def Stop(image, container_name):
     if Check_container(container_name):
         if Check_running_container(container_name):
             Print_separator()
-            Print_comment('The service is already started in a different terminal, we are stopping it now.')
+            Print_comment('We stop the service now.')
             Print_separator()
             if not Stop_running_container(container_name):
                 Print_separator()

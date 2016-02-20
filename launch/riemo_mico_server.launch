@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <node name="riemo_move_mico_server" pkg="nw_motion_optimization" type="start_motion_optimization_service.sh" output="screen" launch-prefix="xterm -e" />
+  <node name="riemo_robot_visualizer" pkg="nw_motion_optimization" type="start_motion_optimization_visualizer.sh" output="screen" launch-prefix="xterm -e"/>
+</launch>

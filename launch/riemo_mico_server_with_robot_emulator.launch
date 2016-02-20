@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
   <include file="$(find nw_motion_optimization)/launch/riemo_mico_server.launch" />
-  <node name="riemo_robot_emulator" pkg="nw_motion_optimization" type="start_motion_optmization_emulator.sh" output="screen" launch-prefix="xterm -e" />
+  <node name="riemo_robot_emulator" pkg="nw_motion_optimization" type="start_motion_optimization_emulator.sh" output="screen" launch-prefix="xterm -e" />
 </launch>

@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
+  <param name="robot_description"
+    command="$(find xacro)/xacro.py '$(find jaco_model)/urdf/standalone_mico.xacro'" />
+
+  <node name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find nw_mico_client)/launch/riemoMicoViz.rviz"/>
+
   <node name="riemo_move_mico_server"
     pkg="nw_motion_optimization"
     type="start_motion_optimization_service.sh"
     output="screen" launch-prefix="xterm -e" />
+
   <node name="riemo_robot_visualizer"
     pkg="nw_motion_optimization"
     type="start_motion_optimization_visualizer.sh"
     output="screen" launch-prefix="xterm -e"/>
+
 </launch>

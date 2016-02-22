@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
   <include file="$(find nw_motion_optimization)/launch/shutdown_riemo_mico_server.launch" />
-  <node name="shutdown_riemo_robot_emulator" pkg="nw_motion_optimization" type="stop_motion_optimization_emulator.sh" output="screen" />
+  <node name="shutdown_riemo_robot_emulator"
+    pkg="nw_motion_optimization"
+    type="stop_motion_optimization_emulator.sh"
+    output="screen" />
 </launch>

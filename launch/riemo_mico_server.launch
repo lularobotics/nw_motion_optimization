@@ -3,19 +3,19 @@
   <param name="robot_description"
     command="$(find xacro)/xacro.py '$(find jaco_model)/urdf/standalone_mico.xacro'" />
 
-  <node name="rviz"
+  <node name="riemo_mico_rviz"
     pkg="rviz"
     type="rviz"
     args="-d $(find nw_mico_client)/launch/riemoMicoViz.rviz"/>
 
-  <node name="riemo_move_mico_server"
-    pkg="nw_motion_optimization"
-    type="start_motion_optimization_service.sh"
-    output="screen" launch-prefix="xterm -e" />
-
   <node name="riemo_robot_visualizer"
     pkg="nw_motion_optimization"
     type="start_motion_optimization_visualizer.sh"
-    output="screen" launch-prefix="xterm -e"/>
+    output="screen" launch-prefix="gnome-terminal -t riemo_robot_visualizer --geometry=80x20+0+0 -x" />
+
+  <node name="riemo_move_mico_server"
+    pkg="nw_motion_optimization"
+    type="start_motion_optimization_service.sh"
+    output="screen" launch-prefix="gnome-terminal -t riemo_move_mico_server --geometry=200x30+0-0 -x" />
 
 </launch>

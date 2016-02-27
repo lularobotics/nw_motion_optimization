@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+  <param name="robot_description" 
+    command="$(find xacro)/xacro.py $(find nw_mico)/mico-modified-working.urdf" />
+
+  <node name="riemo_mico_rviz" 
+    pkg="rviz" 
+    type="rviz" 
+    args="-d $(find nw_mico)/nw_mico_urdf.rviz" />
+
+</launch>
